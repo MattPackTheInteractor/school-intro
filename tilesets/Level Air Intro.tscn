@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://b0frukbivmu7e"]
+
+[ext_resource type="Texture2D" uid="uid://kmbm6dgtgsjr" path="res://tilesets/back.png" id="1_53glx"]
+[ext_resource type="Texture2D" uid="uid://dxvxd67x7n6uj" path="res://characters/DinoSprites - doux.png" id="2_nxmpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("1_53glx")
+region = Rect2(0, 0, 96, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("1_53glx")
+region = Rect2(96, 0, 96, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("1_53glx")
+region = Rect2(192, 0, 96, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("1_53glx")
+region = Rect2(288, 0, 96, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tx1dd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ek2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("2_nxmpu")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("2_nxmpu")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("2_nxmpu")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("2_nxmpu")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3wgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3smsa"]
+radius = 4.0
+height = 14.0
+
+[node name="Main Level" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.0000305, 12)
+scale = Vector2(5.2916665, 2.8529413)
+sprite_frames = SubResource("SpriteFrames_tx1dd")
+frame_progress = 0.6095037
+
+[node name="Project label" type="Label" parent="."]
+offset_left = -205.0
+offset_top = -396.0
+offset_right = -132.0
+offset_bottom = -373.0
+text = "MattPack"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" type="AnimatedSprite2D" parent="."]
+top_level = true
+position = Vector2(-70, -150)
+rotation = 0.61086524
+scale = Vector2(1, 0.9166667)
+sprite_frames = SubResource("SpriteFrames_x3wgy")
+frame_progress = 0.7139748
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_3smsa")
