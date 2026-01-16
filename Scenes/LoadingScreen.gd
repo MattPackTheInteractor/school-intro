@@ -18,7 +18,9 @@ func _process(delta):
 		progress_bar.value = progress
 		
 		# Update loading text
-		loading_label.text = "Loading... " + str(int(progress)) + "%"
+		loading_label.text = "Loading... %d%%" % int(progress)
 	else:
 		# Loading complete, transition to main menu
-		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+		var error = get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+		if error != OK:
+			push_error("Failed to load main menu")
